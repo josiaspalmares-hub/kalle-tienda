@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KALLE · Ropa urbana y zapatos en Caracas</title>
+  <meta name="description" content="KALLE: ropa urbana y zapatos en Caracas. Gira los looks, arma tu pedido y escríbenos por WhatsApp." />
+  <meta name="theme-color" content="#efece6" />
+  <link rel="icon" href="img/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/estilos.css" />
+  <link rel="stylesheet" href="css/secciones.css" />
+</head>
+<body>
+  <div class="carga" aria-hidden="true">
+    <p class="carga__marca"><span>K</span><span>A</span><span>L</span><span>L</span><span>E</span></p>
+    <p class="carga__frase">Planchando las franelas…</p>
+  </div>
+
+  <header class="encabezado">
+    <p class="anuncio">
+      <span class="anuncio__texto">Próximo drop el viernes a las 7:00 PM</span>
+      <span class="anuncio__reloj" data-cuenta-regresiva aria-label="Tiempo para el próximo drop"></span>
+    </p>
+    <div class="encabezado__barra">
+      <a class="encabezado__logo" href="#looks" aria-label="KALLE, ir al inicio">KALLE</a>
+      <nav class="encabezado__menu" aria-label="Menú principal">
+        <a href="#looks">Looks</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#zapatos">Zapatos</a>
+        <a href="#comprar">Cómo comprar</a>
+        <a href="#preguntas">Preguntas</a>
+      </nav>
+      <div class="encabezado__botones">
+        <button class="encabezado__favoritos" type="button" data-abrir-favoritos aria-label="Ver favoritos">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.3 2.4h2c.7-1.2 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg>
+          <span class="encabezado__cuenta" data-favoritos-cuenta hidden>0</span>
+        </button>
+        <button class="encabezado__pedido" type="button" data-abrir-pedido>
+          Pedido <span class="encabezado__cuenta" data-cuenta>0</span>
+        </button>
+      </div>
+    </div>
+    <div class="progreso" aria-hidden="true"><span data-progreso></span></div>
+  </header>
+
+  <main>
+    <!-- 1 · Presentación: rueda de looks que se arrastra -->
+    <section class="looks" id="looks" aria-label="Looks de la colección">
+      <div class="looks__arriba">
+        <p class="etiqueta">Colección 01 · Caracas</p>
+        <p class="looks__lema">Ropa urbana para <em>la calle</em> que tú caminas.</p>
+      </div>
+
+      <p class="looks__fondo" aria-hidden="true">KALLE</p>
+
+      <svg class="sello" viewBox="0 0 120 120" aria-hidden="true" data-sello>
+        <defs><path id="circulo" d="M60 60 m-46 0 a46 46 0 1 1 92 0 a46 46 0 1 1 -92 0" /></defs>
+        <text><textPath href="#circulo">NUEVO DROP · HECHO EN CARACAS · NUEVO DROP · </textPath></text>
+        <circle cx="60" cy="60" r="7" />
+      </svg>
+
+      <div class="rueda" data-rueda tabindex="0" role="group" aria-roledescription="carrusel" aria-label="Looks. Usa las flechas del teclado o arrastra para girar."></div>
+
+      <div class="looks__abajo">
+        <div class="looks__info" aria-live="polite">
+          <p class="looks__numero" data-look-numero>01 / 10</p>
+          <h1 class="looks__nombre" data-look-nombre>Básico blanco</h1>
+          <p class="looks__piezas" data-look-piezas>Franela blanca · Jean negro</p>
+          <p class="looks__precio" data-look-precio>$56</p>
+        </div>
+        <div class="looks__controles">
+          <p class="looks__ayuda">Arrastra para girar</p>
+          <button class="flecha" type="button" data-rueda-anterior aria-label="Look anterior">←</button>
+          <button class="flecha" type="button" data-rueda-siguiente aria-label="Look siguiente">→</button>
+          <button class="boton" type="button" data-look-pedir>Agregar el look</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="cinta" aria-hidden="true">
+      <div class="cinta__pista">
+        <span>Envíos en Caracas</span><span>Pago móvil y Zelle</span><span>Tallas S a XXL</span><span>Zapatos del 36 al 45</span><span>Cambios en 7 días</span>
+        <span>Envíos en Caracas</span><span>Pago móvil y Zelle</span><span>Tallas S a XXL</span><span>Zapatos del 36 al 45</span><span>Cambios en 7 días</span>
+      </div>
+    </div>
+
+    <!-- 1b · En movimiento: video vertical tipo reel -->
+    <section class="movimiento" aria-label="KALLE en la calle">
+      <div class="movimiento__texto" data-revelar>
+        <p class="etiqueta">En la calle</p>
+        <h2 class="titulo">Hecha para <em>moverse.</em></h2>
+        <p class="movimiento__parrafo">Nada de ropa que solo se ve bien parada. Telas que aguantan el metro, la caminata por Chacaíto y la lluvia de las 4:00 PM.</p>
+        <a class="boton" href="#catalogo">Ver el catálogo</a>
+      </div>
+      <div class="movimiento__reel" data-revelar>
+        <video data-video-calle muted loop playsinline preload="none" poster="media/calle-cartel.webp" aria-label="Dos personas cruzan la calle con ropa urbana">
+          <source data-src="media/calle.mp4" type="video/mp4" />
+        </video>
+        <span class="movimiento__etiqueta">● En vivo desde la calle</span>
+      </div>
+    </section>
+
+    <!-- 2 · Lo más vendido: vitrina con filtros y barajar -->
+    <section class="ropa" id="ropa">
+      <div class="ropa__cabeza" data-revelar>
+        <h2 class="titulo">Lo más <em>pedido</em></h2>
+        <p class="ropa__texto">Lo que más se llevan esta semana. Toca una prenda para ver el look completo y elegir tu talla.</p>
+      </div>
+      <div class="ropa__barra" data-revelar>
+        <div class="filtros" role="group" aria-label="Filtrar por tipo">
+          <button type="button" class="filtro activo" data-filtro="todo" aria-pressed="true">Todo</button>
+          <button type="button" class="filtro" data-filtro="franelas" aria-pressed="false">Franelas</button>
+          <button type="button" class="filtro" data-filtro="hoodies" aria-pressed="false">Hoodies</button>
+          <button type="button" class="filtro" data-filtro="chaquetas" aria-pressed="false">Chaquetas</button>
+          <button type="button" class="filtro" data-filtro="pantalones" aria-pressed="false">Pantalones</button>
+        </div>
+        <button type="button" class="barajar" data-barajar>Barajar ↻</button>
+      </div>
+      <ul class="prendas" data-prendas></ul>
+    </section>
+
+    <!-- 3 · Catálogo completo -->
+    <section class="catalogo" id="catalogo">
+      <div class="catalogo__cabeza" data-revelar>
+        <p class="etiqueta">Catálogo</p>
+        <h2 class="titulo">Todo el <em>clóset</em></h2>
+        <p class="catalogo__texto"><span data-cat-total>40</span> prendas. Busca por nombre o color, ordena por precio y agrega sin salir de aquí.</p>
+      </div>
+      <div class="catalogo__barra" data-revelar>
+        <div class="pestanas" role="group" aria-label="Parte del cuerpo">
+          <button type="button" class="filtro activo" data-parte="todo" aria-pressed="true">Todo</button>
+          <button type="button" class="filtro" data-parte="arriba" aria-pressed="false">Franelas y camisas</button>
+          <button type="button" class="filtro" data-parte="abajo" aria-pressed="false">Pantalones y faldas</button>
+        </div>
+        <div class="catalogo__herramientas">
+          <label class="buscador">
+            <span class="sr">Buscar en el catálogo</span>
+            <input type="search" placeholder="Buscar: jean, negro, camisa…" data-cat-buscar maxlength="40" autocomplete="off" />
+          </label>
+          <label class="ordenar">
+            <span class="sr">Ordenar</span>
+            <select data-cat-orden>
+              <option value="destacado">Destacados</option>
+              <option value="menor">Menor precio</option>
+              <option value="mayor">Mayor precio</option>
+              <option value="nombre">Nombre A–Z</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <p class="catalogo__estado" data-cat-estado aria-live="polite"></p>
+      <ul class="prendas prendas--catalogo" data-catalogo></ul>
+      <p class="catalogo__vacio" data-cat-vacio hidden>Nada con ese nombre, pana. Prueba con “jean”, “negro” o “camisa”.</p>
+      <div class="catalogo__mas">
+        <button type="button" class="boton boton--borde" data-cat-mas>Ver más</button>
+      </div>
+    </section>
+
+    <!-- 3b · Probador de outfits -->
+    <section class="probador" id="probador" data-probador>
+      <div class="probador__cabeza" data-revelar>
+        <p class="etiqueta">Probador</p>
+        <h2 class="titulo">Arma tu <em>outfit</em></h2>
+        <p class="probador__texto">Combina la parte de arriba de un look con la de abajo de otro. Si queda raro, dale a “Sorpréndeme”, que la moda es así.</p>
+      </div>
+      <div class="probador__cuerpo">
+        <div class="maniqui" aria-label="Vista previa del outfit">
+          <div class="maniqui__parte maniqui__parte--arriba" data-parte-probador="arriba" tabindex="0" aria-label="Parte de arriba. Usa las flechas para cambiarla."><img alt="" /></div>
+          <div class="maniqui__parte maniqui__parte--abajo" data-parte-probador="abajo" tabindex="0" aria-label="Parte de abajo. Usa las flechas para cambiarla."><img alt="" /></div>
+          <div class="maniqui__suelo" aria-hidden="true"></div>
+        </div>
+        <div class="probador__controles">
+          <div class="control">
+            <p class="etiqueta">Arriba</p>
+            <div class="control__fila">
+              <button class="flecha" type="button" data-probador-mover="arriba:-1" aria-label="Prenda de arriba anterior">←</button>
+              <div class="control__datos">
+                <p class="control__nombre" data-probador-nombre="arriba" aria-live="polite"></p>
+                <p class="control__precio" data-probador-precio="arriba"></p>
+              </div>
+              <button class="flecha" type="button" data-probador-mover="arriba:1" aria-label="Prenda de arriba siguiente">→</button>
+            </div>
+            <label class="selector selector--claro"><span>Talla de arriba</span><select data-probador-talla="arriba"><option value="">Elige</option></select></label>
+          </div>
+          <div class="control">
+            <p class="etiqueta">Abajo</p>
+            <div class="control__fila">
+              <button class="flecha" type="button" data-probador-mover="abajo:-1" aria-label="Prenda de abajo anterior">←</button>
+              <div class="control__datos">
+                <p class="control__nombre" data-probador-nombre="abajo" aria-live="polite"></p>
+                <p class="control__precio" data-probador-precio="abajo"></p>
+              </div>
+              <button class="flecha" type="button" data-probador-mover="abajo:1" aria-label="Prenda de abajo siguiente">→</button>
+            </div>
+            <label class="selector selector--claro"><span>Talla de abajo</span><select data-probador-talla="abajo"><option value="">Elige</option></select></label>
+          </div>
+          <div class="probador__total"><span>El outfit completo</span><strong data-probador-total></strong></div>
+          <p class="aviso" data-probador-aviso role="alert"></p>
+          <div class="probador__acciones">
+            <button class="boton" type="button" data-probador-agregar>Agregar el outfit</button>
+            <button class="boton boton--borde" type="button" data-probador-azar>Sorpréndeme ↻</button>
+          </div>
+          <button class="enlace" type="button" data-probador-guia>¿No sabes tu talla? Calcúlala aquí</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · Zapatos: showroom con repisas que se encienden -->
+    <section class="zapatos" id="zapatos">
+      <div class="zapatos__cabeza" data-revelar>
+        <div>
+          <p class="etiqueta etiqueta--clara">Zapatos KALLE · <span data-pares-total>16</span> pares</p>
+          <h2 class="titulo titulo--claro">Pisa <em>distinto.</em></h2>
+        </div>
+        <div class="zapatos__lado">
+          <p class="zapatos__texto">Pasa el cursor por las repisas: la luz te sigue. Elige un par para verlo de cerca.</p>
+          <button type="button" class="barajar barajar--claro" data-pares-barajar>Reordenar ↻</button>
+        </div>
+      </div>
+      <ul class="showroom" data-pares></ul>
+    </section>
+
+    <!-- 5 · Cómo comprar -->
+    <section class="comprar" id="comprar">
+      <div class="comprar__cabeza" data-revelar>
+        <p class="etiqueta">Cómo comprar</p>
+        <h2 class="titulo">Cuatro pasos y <em>listo.</em></h2>
+      </div>
+      <ol class="pasos" data-pasos>
+        <li class="paso">
+          <span class="paso__numero">01</span>
+          <h3 class="paso__titulo">Arma tu pedido</h3>
+          <p class="paso__texto">Agrega prendas y zapatos con tu talla. Si dudas entre dos, agrega las dos y lo hablamos.</p>
+        </li>
+        <li class="paso">
+          <span class="paso__numero">02</span>
+          <h3 class="paso__titulo">Mándalo por WhatsApp</h3>
+          <p class="paso__texto">El botón arma el mensaje solo. Te confirmamos disponibilidad en menos de una hora.</p>
+        </li>
+        <li class="paso">
+          <span class="paso__numero">03</span>
+          <h3 class="paso__titulo">Paga como quieras</h3>
+          <p class="paso__texto">Pago móvil, Zelle, Binance o efectivo en la entrega. Precios en dólares, también en bolívares a tasa del día.</p>
+        </li>
+        <li class="paso">
+          <span class="paso__numero">04</span>
+          <h3 class="paso__titulo">Recíbelo</h3>
+          <p class="paso__texto">Delivery en Caracas el mismo día si pides antes de las 2:00 PM. Al interior, por MRW o Zoom en 24 a 72 horas.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 6 · Opiniones y comentarios -->
+    <section class="opiniones" id="opiniones">
+      <div class="opiniones__cabeza" data-revelar>
+        <p class="etiqueta">Opiniones</p>
+        <h2 class="titulo">Lo que dice <em>la calle</em></h2>
+        <div class="nota">
+          <p class="nota__numero" data-nota-numero>4.8</p>
+          <div>
+            <p class="estrellas" aria-hidden="true">★★★★★</p>
+            <p class="nota__texto"><span data-nota-total>312</span> opiniones</p>
+          </div>
+        </div>
+      </div>
+      <div class="resenas" aria-label="Opiniones de clientes">
+        <ul class="resenas__fila" data-resenas="1"></ul>
+        <ul class="resenas__fila resenas__fila--reversa" data-resenas="2"></ul>
+      </div>
+
+      <div class="comentar" data-revelar>
+        <div class="comentar__intro">
+          <h3 class="comentar__titulo">¿Ya compraste? <em>Cuéntanos.</em></h3>
+          <p class="comentar__nota">Tu comentario lo ve todo el mundo. Los que falten el respeto se ocultan.</p>
+        </div>
+        <form class="formulario" data-comentar novalidate>
+          <label class="campo">
+            <span>Tu nombre</span>
+            <input name="nombre" type="text" minlength="2" maxlength="40" required autocomplete="given-name" />
+          </label>
+          <fieldset class="campo campo--estrellas">
+            <legend>Tu nota</legend>
+            <div class="elegir-estrellas">
+              <input type="radio" name="nota" id="nota-5" value="5" checked /><label for="nota-5" title="5 estrellas">★</label>
+              <input type="radio" name="nota" id="nota-4" value="4" /><label for="nota-4" title="4 estrellas">★</label>
+              <input type="radio" name="nota" id="nota-3" value="3" /><label for="nota-3" title="3 estrellas">★</label>
+              <input type="radio" name="nota" id="nota-2" value="2" /><label for="nota-2" title="2 estrellas">★</label>
+              <input type="radio" name="nota" id="nota-1" value="1" /><label for="nota-1" title="1 estrella">★</label>
+            </div>
+          </fieldset>
+          <label class="campo campo--ancho">
+            <span>Tu comentario <small data-contador>0 / 280</small></span>
+            <textarea name="texto" rows="3" minlength="5" maxlength="280" required></textarea>
+          </label>
+          <p class="aviso" data-comentar-aviso role="alert"></p>
+          <button class="boton" type="submit">Publicar comentario</button>
+        </form>
+        <p class="comentarios__estado" data-comentarios-estado aria-live="polite"></p>
+        <ul class="comentarios" data-comentarios></ul>
+      </div>
+    </section>
+
+    <!-- 7 · Ubicación -->
+    <section class="ubicacion" id="ubicacion">
+      <div class="ubicacion__datos" data-revelar>
+        <p class="etiqueta">La tienda</p>
+        <h2 class="titulo">Pásate por <em>Sabana Grande</em></h2>
+        <dl class="ubicacion__lista">
+          <div><dt>Dónde</dt><dd>Bulevar de Sabana Grande, Caracas. A dos cuadras del metro Plaza Venezuela.</dd></div>
+          <div><dt>Horario</dt><dd>Lunes a sábado, 10:00 AM a 7:00 PM<br />Domingo, 11:00 AM a 4:00 PM</dd></div>
+          <div><dt>Estado</dt><dd data-abierto>—</dd></div>
+        </dl>
+        <a class="boton" href="https://www.google.com/maps/search/?api=1&query=Bulevar+de+Sabana+Grande+Caracas" target="_blank" rel="noopener">Cómo llegar →</a>
+      </div>
+      <div class="mapa" data-revelar>
+        <iframe title="Mapa de Sabana Grande, Caracas" loading="lazy" referrerpolicy="no-referrer"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-66.8890%2C10.4885%2C-66.8660%2C10.4990&amp;layer=mapnik&amp;marker=10.4937%2C-66.8775"></iframe>
+        <span class="mapa__pin" aria-hidden="true">KALLE</span>
+      </div>
+    </section>
+
+    <!-- 8 · Preguntas frecuentes -->
+    <section class="preguntas" id="preguntas">
+      <div class="preguntas__cabeza" data-revelar>
+        <p class="etiqueta">Preguntas frecuentes</p>
+        <h2 class="titulo">Lo que todos <em>preguntan</em></h2>
+      </div>
+      <div class="acordeon" data-revelar>
+        <details name="faq" open>
+          <summary>¿Y si no me queda?</summary>
+          <p>Lo cambias en 7 días, sin drama. La prenda tiene que estar sin usar y con la etiqueta. Si no tenemos tu talla, te devolvemos el dinero.</p>
+        </details>
+        <details name="faq">
+          <summary>¿Cómo sé mi talla?</summary>
+          <p>Usa la <button class="enlace" type="button" data-abrir-guia="ropa">guía de tallas</button>: pones tu altura y cuánto pesas y te la dice. Las franelas son oversize: si te gustan pegadas, pide una talla menos. Para zapatos, mide tu pie en la <button class="enlace" type="button" data-abrir-guia="zapatos">guía de zapatos</button>.</p>
+        </details>
+        <details name="faq">
+          <summary>¿Hacen delivery a mi zona?</summary>
+          <p>A toda Caracas, de Catia a Petare y de La Guaira a El Hatillo. Al interior enviamos por MRW o Zoom, cobro a destino.</p>
+        </details>
+        <details name="faq">
+          <summary>¿Puedo pagar en bolívares?</summary>
+          <p>Sí. Los precios están en dólares y te pasamos el monto en bolívares a la tasa del BCV del día que pagas.</p>
+        </details>
+        <details name="faq">
+          <summary>¿Los zapatos son originales?</summary>
+          <p>KALLE es una marca inventada para este proyecto de portafolio, así que no hay zapatos reales a la venta. En una tienda de verdad, aquí iría la garantía y lo que trae la caja.</p>
+        </details>
+        <details name="faq">
+          <summary>¿Me apartan algo mientras consigo los reales?</summary>
+          <p>Te lo guardamos 48 horas con el 30 % del precio. Después de eso vuelve al estante, porque vuela.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 9 · Cierre -->
+    <section class="cierre" id="contacto">
+      <p class="etiqueta">¿Armaste tu pedido?</p>
+      <h2 class="cierre__frase">Escríbenos y <em>te lo llevamos.</em></h2>
+      <p class="cierre__texto">Confirmamos tallas y disponibilidad por WhatsApp. Entregas en Caracas de lunes a sábado.</p>
+      <button class="boton boton--grande" type="button" data-abrir-pedido>Ver mi pedido</button>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p class="pie__marca" aria-hidden="true">KALLE</p>
+    <div class="pie__fila">
+      <p><strong>Proyecto de portafolio.</strong> KALLE es una marca ficticia: productos, precios, opiniones de muestra y dirección son de ejemplo. Escribe “kalle” en el teclado y verás.</p>
+      <p>Fotos y video: <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a> · Mapa: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> · Tasa: <a href="https://ve.dolarapi.com" target="_blank" rel="noopener">DolarApi</a></p>
+      <a href="#looks">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <!-- Ficha de una prenda -->
+  <dialog class="ficha" data-ficha aria-labelledby="ficha-nombre">
+    <button class="cerrar" type="button" data-cerrar aria-label="Cerrar">✕</button>
+    <div class="ficha__foto"><img data-ficha-foto alt="" /></div>
+    <div class="ficha__datos">
+      <p class="etiqueta" data-ficha-tipo></p>
+      <h3 class="ficha__nombre" id="ficha-nombre" data-ficha-nombre></h3>
+      <p class="ficha__precio" data-ficha-precio></p>
+      <p class="ficha__nota" data-ficha-look></p>
+      <fieldset class="tallas" data-tallas>
+        <legend>Talla</legend>
+      </fieldset>
+      <button class="enlace" type="button" data-ficha-guia>¿Cuál es mi talla?</button>
+      <p class="aviso" data-aviso role="alert"></p>
+      <button class="boton" type="button" data-agregar>Agregar al pedido</button>
+    </div>
+  </dialog>
+
+  <!-- Escaparate de zapatos (vista grande) -->
+  <dialog class="escaparate" data-escaparate aria-labelledby="escaparate-nombre">
+    <button class="cerrar cerrar--claro" type="button" data-cerrar aria-label="Cerrar">✕</button>
+    <div class="escaparate__info">
+      <p class="etiqueta etiqueta--clara"><span>Colección</span> · <span data-esc-numero></span></p>
+      <h3 class="escaparate__nombre" id="escaparate-nombre" data-esc-nombre></h3>
+      <p class="escaparate__desc" data-esc-desc></p>
+    </div>
+    <div class="escaparate__escena">
+      <button class="vecino vecino--antes" type="button" data-esc-anterior aria-label="Par anterior"><img alt="" data-esc-antes /></button>
+      <img class="escaparate__zapato" data-esc-foto alt="" />
+      <div class="pedestal" aria-hidden="true"></div>
+      <button class="vecino vecino--despues" type="button" data-esc-siguiente aria-label="Par siguiente"><img alt="" data-esc-despues /></button>
+    </div>
+    <div class="escaparate__panel">
+      <p class="escaparate__color" data-esc-color></p>
+      <dl class="escaparate__ficha">
+        <div><dt>Material</dt><dd data-esc-material></dd></div>
+        <div><dt>Peso</dt><dd data-esc-peso></dd></div>
+      </dl>
+      <label class="selector">
+        <span>Talla (EU)</span>
+        <select data-esc-talla>
+          <option value="">Elige tu talla</option>
+        </select>
+      </label>
+      <button class="enlace enlace--claro" type="button" data-esc-guia>¿Cuál es mi talla?</button>
+      <p class="escaparate__precio" data-esc-precio></p>
+      <p class="aviso" data-aviso role="alert"></p>
+      <button class="boton boton--naranja" type="button" data-agregar>Agregar al pedido</button>
+    </div>
+  </dialog>
+
+  <!-- Pedido -->
+  <dialog class="pedido" data-pedido aria-labelledby="pedido-titulo">
+    <button class="cerrar" type="button" data-cerrar aria-label="Cerrar">✕</button>
+    <h3 class="pedido__titulo" id="pedido-titulo">Tu pedido</h3>
+    <ul class="pedido__lista" data-pedido-lista></ul>
+    <p class="pedido__vacio" data-pedido-vacio>Todavía no agregaste nada. Gira los looks o pasa por el catálogo.</p>
+    <p class="pedido__codigo" data-pedido-codigo hidden>Código secreto KALLE10 activado: 10 % menos.</p>
+    <div class="pedido__total"><span>Total</span><strong data-pedido-total>$0</strong></div>
+    <p class="pedido__tasa" data-tasa>Precios en dólares. Cargando la tasa del BCV…</p>
+    <a class="boton boton--grande" data-pedido-enviar href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+  </dialog>
+
+  <!-- Guía de tallas -->
+  <dialog class="guia" data-guia aria-labelledby="guia-titulo">
+    <button class="cerrar" type="button" data-cerrar aria-label="Cerrar">✕</button>
+    <h3 class="pedido__titulo" id="guia-titulo">Guía de tallas</h3>
+    <div class="pestanas" role="group" aria-label="Tipo de talla">
+      <button type="button" class="filtro activo" data-guia-tipo="ropa" aria-pressed="true">Ropa</button>
+      <button type="button" class="filtro" data-guia-tipo="zapatos" aria-pressed="false">Zapatos</button>
+    </div>
+    <form class="guia__form" data-guia-panel="ropa" data-guia-ropa novalidate>
+      <label class="campo"><span>Altura (cm)</span><input name="altura" type="number" inputmode="numeric" min="130" max="220" required placeholder="170" /></label>
+      <label class="campo"><span>Peso (kg)</span><input name="peso" type="number" inputmode="numeric" min="35" max="180" required placeholder="68" /></label>
+      <fieldset class="campo">
+        <legend>¿Cómo te gusta que quede?</legend>
+        <div class="ajustes">
+          <label><input type="radio" name="ajuste" value="pegada" /> Pegada</label>
+          <label><input type="radio" name="ajuste" value="normal" checked /> Normal</label>
+          <label><input type="radio" name="ajuste" value="holgada" /> Holgada</label>
+        </div>
+      </fieldset>
+      <button class="boton" type="submit">Calcular mi talla</button>
+    </form>
+    <form class="guia__form" data-guia-panel="zapatos" data-guia-zapatos novalidate hidden>
+      <label class="campo"><span>Largo de tu pie (cm)</span><input name="pie" type="number" inputmode="decimal" step="0.1" min="21" max="31" required placeholder="26" /></label>
+      <p class="guia__ayuda">Pisa una hoja contra la pared, marca la punta del dedo más largo y mide desde el talón.</p>
+      <button class="boton" type="submit">Calcular mi talla</button>
+    </form>
+    <p class="guia__resultado" data-guia-resultado aria-live="polite"></p>
+    <button class="boton boton--naranja" type="button" data-guia-usar hidden>Usar esta talla</button>
+  </dialog>
+
+  <!-- Favoritos -->
+  <dialog class="pedido" data-favoritos aria-labelledby="favoritos-titulo">
+    <button class="cerrar" type="button" data-cerrar aria-label="Cerrar">✕</button>
+    <h3 class="pedido__titulo" id="favoritos-titulo">Tus favoritos</h3>
+    <ul class="pedido__lista" data-favoritos-lista></ul>
+    <p class="pedido__vacio" data-favoritos-vacio>Toca el corazón de una prenda o de un par y aparece aquí.</p>
+  </dialog>
+
+  <div class="aviso-flotante" data-toast role="status" aria-live="polite"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

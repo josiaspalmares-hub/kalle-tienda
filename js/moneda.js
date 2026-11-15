@@ -1,5 +1,4 @@
-// Precios en dólares y bolívares con la tasa oficial del BCV del día (vía ve.dolarapi.com).
-// Si la tasa no carga, se muestran solo los dólares: nunca se inventa una tasa.
+// Precios en $ y Bs (tasa BCV de ve.dolarapi.com). Si la tasa no carga, solo dólares.
 
 const FUENTE = 'https://ve.dolarapi.com/v1/dolares/oficial';
 let tasa = null; // { valor, fecha }
@@ -10,7 +9,7 @@ export const dolares = (n) => `$${Number.isInteger(n) ? n : n.toFixed(2)}`;
 export const bolivares = (n) => (tasa ? `Bs ${formatoBs.format(n * tasa.valor)}` : '');
 export const tasaActual = () => tasa;
 
-// Pone "$32" y, si ya hay tasa, debajo "Bs 29.171,98". Se repinta solo cuando llega la tasa.
+// Se repinta cuando llega la tasa
 export function ponerPrecio(elemento, usd) {
   elemento.dataset.usd = String(usd);
   elemento.textContent = dolares(usd);

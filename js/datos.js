@@ -1,4 +1,4 @@
-// Catálogo de la marca inventada KALLE. Fotos: Pexels (licencia libre), recortadas sin fondo.
+// Datos de KALLE (marca ficticia). Fotos de Pexels sin fondo.
 
 export const looks = [
   { id: 'm01', nombre: 'Básico blanco', piezas: 'Franela blanca · Jean negro', precio: 56 },

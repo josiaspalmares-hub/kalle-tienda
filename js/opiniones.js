@@ -2,8 +2,7 @@ import { resenas } from './datos-catalogo.js';
 import { avisar } from './aviso.js';
 import { SUPABASE_URL, SUPABASE_CLAVE } from './config.js';
 
-// Opiniones de muestra en dos cintas que corren en sentidos opuestos,
-// y comentarios reales guardados en Supabase.
+// Opiniones de muestra y comentarios en Supabase
 
 const MAXIMO_VISIBLES = 30;
 const ESPERA_MS = 60000;
@@ -50,7 +49,7 @@ function crearResena({ nombre, zona, nota, texto }) {
   return item;
 }
 
-// Cada cinta lleva sus reseñas dos veces: así el bucle no tiene costura.
+// Reseñas duplicadas para un bucle sin costura
 function pintarCintas() {
   const mitad = Math.ceil(resenas.length / 2);
   [resenas.slice(0, mitad), resenas.slice(mitad)].forEach((grupo, i) => {
@@ -60,10 +59,10 @@ function pintarCintas() {
   });
 }
 
-// ---- Supabase: leer los visibles y publicar por la función comentar() ----
+// ---- Supabase ----
 const cabeceras = { apikey: SUPABASE_CLAVE, 'Content-Type': 'application/json' };
 
-// Mensajes para los errores que manda la base de datos (sin mostrar detalles internos).
+// Errores de la base sin detalles internos
 const ERRORES = {
   muy_seguido: 'Epa, más despacio: espera un minuto para comentar otra vez.',
   limite_diario: 'Ya comentaste bastante hoy. ¡Gracias! Vuelve mañana.',
@@ -92,7 +91,7 @@ async function publicar({ nombre, nota, texto }) {
 
 const conZona = (c) => ({ ...c, zona: `Comentó el ${new Date(c.creado).toLocaleDateString('es-VE', { day: 'numeric', month: 'short' })}` });
 
-// ---- Validación en el navegador (la base de datos vuelve a validar todo) ----
+// ---- Validación (la base vuelve a validar) ----
 const limpiar = (texto) => String(texto ?? '').replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim();
 
 function validarFormulario(datos) {

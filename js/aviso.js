@@ -1,4 +1,4 @@
-// Aviso flotante abajo de la pantalla ("¡Listo, pana!").
+// Aviso flotante
 const caja = document.querySelector('[data-toast]');
 let temporizador = 0;
 

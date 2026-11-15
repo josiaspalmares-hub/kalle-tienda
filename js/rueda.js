@@ -2,8 +2,7 @@ import { looks } from './datos.js';
 import { ponerPrecio } from './moneda.js';
 import { abrirFicha } from './ficha.js';
 
-// Rueda en órbita: cada look tiene un ángulo; con seno y coseno se saca su posición,
-// tamaño y profundidad, y todo va en un solo transform: matrix() por cuadro.
+// Rueda en órbita: posición, tamaño y profundidad con seno y coseno en un solo matrix()
 
 const rueda = document.querySelector('[data-rueda]');
 const info = document.querySelector('.looks__info');
@@ -36,7 +35,7 @@ const items = looks.map((look, indice) => {
   foto.alt = `Look ${look.nombre}: ${look.piezas}`;
   foto.decoding = 'async';
   if (indice > 2 && indice < total - 2) foto.loading = 'lazy';
-  // cada caja toma el ancho de su foto: así todos los modelos quedan de la misma altura
+  // ancho según la foto para igualar la altura
   foto.addEventListener('load', () => {
     item.style.setProperty('--proporcion', foto.naturalWidth / foto.naturalHeight);
   });
@@ -85,7 +84,7 @@ function mostrarInfo(indice) {
 
 let pintado = { posicion: NaN, radio: NaN };
 
-// Recorrido con tiempo fijo y curva suave: arranca despacio, acelera y frena despacio.
+// Recorrido con curva suave
 const DURACION_PASO = 1300;
 let recorrido = null; // { desde, hasta, inicio, duracion }
 const suave = (t) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
@@ -96,7 +95,7 @@ function cuadro(ahora) {
     posicion = recorrido.desde + (recorrido.hasta - recorrido.desde) * suave(t);
     if (t === 1) recorrido = null;
   }
-  // solo se repinta si algo se movió: quieta, la rueda no gasta batería
+  // quieta no se repinta (ahorra batería)
   if (posicion !== pintado.posicion || radio !== pintado.radio) {
     colocar();
     pintado = { posicion, radio };
@@ -112,7 +111,7 @@ function moverA(valor) {
     recorrido = null;
     return;
   }
-  // los saltos largos tardan un poco más, pero nunca más de 2,2 segundos
+  // máximo 2,2 s
   const duracion = Math.min(DURACION_PASO * (0.75 + distancia * 0.35), 2200);
   recorrido = { desde: posicion, hasta: valor, inicio: performance.now(), duracion };
 }
@@ -122,7 +121,7 @@ function irA(valor) {
   pausaHasta = performance.now() + 7000;
 }
 
-// ---- Arrastre con el mouse o el dedo ----
+// ---- Arrastre ----
 rueda.addEventListener('pointerdown', (evento) => {
   arrastrando = true;
   recorrido = null; // al agarrarla se detiene donde esté
@@ -154,7 +153,7 @@ function soltar(evento) {
 rueda.addEventListener('pointerup', soltar);
 rueda.addEventListener('pointercancel', () => { arrastrando = false; irA(Math.round(posicion)); });
 
-// Un toque en un look de atrás lo trae al frente; en el del frente abre su ficha.
+// Toque: trae al frente o abre la ficha
 function elegirConClic(evento) {
   const tocado = document.elementsFromPoint(evento.clientX, evento.clientY)
     .find((elemento) => elemento.classList.contains('rueda__item'));
@@ -181,7 +180,7 @@ function abrirLook(indice) {
   });
 }
 
-// ---- Botones, teclado y giro automático ----
+// ---- Botones, teclado y giro ----
 document.querySelector('[data-rueda-anterior]').addEventListener('click', () => irA(Math.round(objetivo) - 1));
 document.querySelector('[data-rueda-siguiente]').addEventListener('click', () => irA(Math.round(objetivo) + 1));
 document.querySelector('[data-look-pedir]').addEventListener('click', () => abrirLook(frenteActual));

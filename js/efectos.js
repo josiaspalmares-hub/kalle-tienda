@@ -4,7 +4,7 @@ import { avisar } from './aviso.js';
 const reducirMovimiento = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const conCursor = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-// ---- Cuenta regresiva al próximo drop: viernes a las 7:00 PM ----
+// ---- Cuenta regresiva (viernes 7:00 PM) ----
 const reloj = document.querySelector('[data-cuenta-regresiva]');
 
 function proximoDrop(ahora) {
@@ -29,7 +29,7 @@ function pintarReloj() {
 pintarReloj();
 setInterval(pintarReloj, 1000);
 
-// ---- Barra de progreso de la página ----
+// ---- Barra de progreso ----
 const barra = document.querySelector('[data-progreso]');
 function pintarProgreso() {
   const recorrido = document.documentElement.scrollHeight - innerHeight;
@@ -38,7 +38,7 @@ function pintarProgreso() {
 addEventListener('scroll', pintarProgreso, { passive: true });
 pintarProgreso();
 
-// ---- Pasos de compra: la línea se llena y cada paso se enciende al bajar ----
+// ---- Pasos de compra ----
 const pasos = document.querySelector('[data-pasos]');
 const cadaPaso = [...pasos.children];
 function pintarPasos() {
@@ -50,7 +50,7 @@ function pintarPasos() {
 addEventListener('scroll', pintarPasos, { passive: true });
 pintarPasos();
 
-// ---- Botones que se dejan jalar por el cursor ----
+// ---- Botones magnéticos ----
 if (conCursor && !reducirMovimiento) {
   document.querySelectorAll('.boton').forEach((boton) => {
     boton.addEventListener('pointermove', (evento) => {
@@ -65,7 +65,7 @@ if (conCursor && !reducirMovimiento) {
   });
 }
 
-// ---- ¿Está abierta la tienda? Con la hora de Caracas ----
+// ---- Abierto ahora ----
 const HORARIO = { 0: [11, 16] }; // domingo; el resto de los días es 10 a 19
 const abierto = document.querySelector('[data-abierto]');
 const hora12 = (h) => `${h % 12 || 12}:00 ${h < 12 ? 'AM' : 'PM'}`;
@@ -88,7 +88,7 @@ function pintarAbierto() {
 pintarAbierto();
 setInterval(pintarAbierto, 60000);
 
-// ---- Código secreto: escribir "kalle" en cualquier parte ----
+// ---- Código "kalle" ----
 const SECRETO = 'kalle';
 let tecleado = '';
 let codigoUsado = false;

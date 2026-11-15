@@ -1,5 +1,4 @@
-// Guía de tallas: ropa (altura, peso y cómo te gusta que quede) y zapatos (largo del pie).
-// Si se abre desde una ficha, el botón "Usar esta talla" la marca allá.
+// Guía de tallas
 
 export const TALLAS_ROPA = ['S', 'M', 'L', 'XL', 'XXL'];
 const LIMITES_PESO = [55, 67, 80, 93]; // kg: hasta 55 → S, hasta 67 → M…

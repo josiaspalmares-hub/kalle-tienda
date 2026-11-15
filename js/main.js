@@ -13,7 +13,7 @@ import { abrirFavoritos, iniciarFavoritos } from './favoritos.js';
 iniciarFavoritos();
 document.querySelector('[data-abrir-favoritos]').addEventListener('click', abrirFavoritos);
 
-// Video de la calle: se descarga y se reproduce solo cuando está cerca de la pantalla.
+// Video: carga solo cerca de la pantalla
 const video = document.querySelector('[data-video-calle]');
 const reducirMovimiento = matchMedia('(prefers-reduced-motion: reduce)').matches;
 new IntersectionObserver(([entrada]) => {
@@ -30,14 +30,14 @@ new IntersectionObserver(([entrada]) => {
   }
 }, { rootMargin: '200px 0px' }).observe(video);
 
-// Pantalla de carga: se va cuando cargan las fotos del inicio.
+// Pantalla de carga
 const carga = document.querySelector('.carga');
 addEventListener('load', () => setTimeout(() => carga.classList.add('oculta'), 500));
 
-// Botones que abren el pedido (encabezado y cierre).
+// Abrir pedido
 document.querySelectorAll('[data-abrir-pedido]').forEach((boton) => boton.addEventListener('click', abrirPedido));
 
-// Cerrar ventanas: botón ✕ o clic fuera de la caja.
+// Cerrar ventanas
 document.querySelectorAll('dialog').forEach((ventana) => {
   ventana.querySelector('[data-cerrar]').addEventListener('click', () => ventana.close());
   ventana.addEventListener('click', (evento) => {
@@ -45,7 +45,7 @@ document.querySelectorAll('dialog').forEach((ventana) => {
   });
 });
 
-// Encabezado: fondo claro al bajar y oscuro sobre la sección de zapatos.
+// Encabezado
 const encabezado = document.querySelector('.encabezado');
 const zapatos = document.querySelector('#zapatos');
 function ajustarEncabezado() {
@@ -58,7 +58,7 @@ function ajustarEncabezado() {
 addEventListener('scroll', ajustarEncabezado, { passive: true });
 ajustarEncabezado();
 
-// Aparecer al bajar.
+// Aparecer al bajar
 const observador = new IntersectionObserver((entradas) => {
   entradas.forEach((entrada) => {
     if (!entrada.isIntersecting) return;

@@ -1,5 +1,4 @@
-// Catálogo completo (20 de arriba y 20 de abajo) y opiniones de muestra.
-// foto: carpeta/archivo; foco y zoom ubican la prenda dentro de la foto del modelo.
+// Catálogo y opiniones de muestra. foco y zoom ubican la prenda en la foto del modelo.
 
 const ARRIBA = { foco: '50% 25%', zoom: 1.8 };
 const ABAJO = { foco: '50% 86%', zoom: 2 };

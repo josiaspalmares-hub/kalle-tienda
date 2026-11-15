@@ -4,8 +4,7 @@ import { agregarAlPedido } from './pedido.js';
 import { TALLAS_ROPA, abrirGuia } from './tallas.js';
 import { avisar } from './aviso.js';
 
-// Probador: arriba de un modelo + abajo de otro, como muñeco de papel.
-// Cada parte muestra solo su franja de la foto (desde/hasta, en fracción del alto).
+// Probador: cada parte muestra su franja de la foto (desde/hasta en fracción del alto)
 const FRANJAS = { arriba: { desde: 0.08, hasta: 0.5 }, abajo: { desde: 0.46, hasta: 1 } };
 const reducirMovimiento = matchMedia('(prefers-reduced-motion: reduce)').matches;
 

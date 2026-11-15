@@ -2,7 +2,7 @@ import { dolares, enlaceWhatsApp } from './datos.js';
 import { ponerPrecio, bolivares } from './moneda.js';
 import { avisar } from './aviso.js';
 
-// El pedido vive solo en memoria: al recargar la página empieza vacío.
+// Pedido en memoria
 const articulos = [];
 const DESCUENTO = 0.1;
 let conCodigo = false;
@@ -17,7 +17,7 @@ const cuentas = document.querySelectorAll('[data-cuenta]');
 const botonPedido = document.querySelector('.encabezado__pedido');
 const reducirMovimiento = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// origen: la foto desde donde sale volando la prenda hasta el botón "Pedido"
+// origen: foto desde donde vuela la prenda
 export function agregarAlPedido(articulo, origen) {
   articulos.push(articulo);
   pintarPedido();
@@ -124,7 +124,7 @@ function textoDelPedido(suma) {
   return `Hola KALLE, quiero hacer este pedido:\n${lineas.join('\n')}${extra}\nTotal: ${dolares(suma)}${enBs}`;
 }
 
-// ---- Tallas: botones de radio de la ficha de ropa ----
+// ---- Tallas ----
 
 export function pintarTallas(grupo, tallas, nombre) {
   const leyenda = grupo.querySelector('legend');

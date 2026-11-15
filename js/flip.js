@@ -1,5 +1,4 @@
-// FLIP: se guarda dónde estaba cada elemento, se cambia el orden o se filtran,
-// y cada uno se anima desde su sitio viejo hasta el nuevo.
+// Animación FLIP al reordenar o filtrar
 const reducirMovimiento = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 export function animarCambio(elementos, cambiar) {

@@ -1,8 +1,7 @@
 import { ponerPrecio } from './moneda.js';
 import { avisar } from './aviso.js';
 
-// Favoritos: un corazón en cada prenda y cada par. Se recuerdan en este navegador
-// (es una comodidad de quien visita, no un dato que deba compartirse).
+// Favoritos (solo en este navegador)
 
 const CLAVE = 'kalle-favoritos';
 const catalogo = new Map(); // clave → { nombre, precio, foto, abrir }
@@ -123,7 +122,7 @@ export function abrirFavoritos() {
   ventana.showModal();
 }
 
-// Se llama cuando todas las tarjetas ya registraron su corazón.
+// Después de registrar todas las tarjetas
 export function iniciarFavoritos() {
   pintarCuenta();
 }

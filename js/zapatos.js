@@ -31,7 +31,7 @@ const fotoDe = (zapato) => `img/zapatos/${zapato.id}.webp`;
 document.querySelector('[data-pares-total]').textContent = zapatos.length;
 TALLAS_ZAPATOS.forEach((talla) => campos.talla.add(new Option(talla, talla)));
 
-// ---- Showroom: cada par en su repisa con foco arriba y luz LED abajo ----
+// ---- Showroom ----
 const repisas = zapatos.map((zapato, indice) => {
   const repisa = document.createElement('li');
   repisa.className = 'repisa';
@@ -66,7 +66,7 @@ const repisas = zapatos.map((zapato, indice) => {
   return repisa;
 });
 
-// La luz de la repisa sigue al cursor: su posición dentro de la repisa pasa a --x.
+// Luz que sigue al cursor (--x)
 function seguirCursor(repisa) {
   repisa.addEventListener('pointermove', (evento) => {
     const caja = repisa.getBoundingClientRect();
@@ -76,7 +76,7 @@ function seguirCursor(repisa) {
   repisa.addEventListener('pointerleave', () => repisa.style.removeProperty('--x'));
 }
 
-// En el teléfono no hay cursor: se enciende la repisa que pasa por el centro de la pantalla.
+// Teléfono: se enciende la repisa del centro
 if (matchMedia('(hover: none)').matches) {
   const observador = new IntersectionObserver((entradas) => {
     entradas.forEach((entrada) => entrada.target.classList.toggle('activo', entrada.isIntersecting));
@@ -96,7 +96,7 @@ function abrirEscaparate(indice, fotoOrigen) {
   if (!reducirMovimiento) volarDesdeRepisa(fotoOrigen);
 }
 
-// Lo que se ve de una imagen con object-fit: contain pegada abajo y al centro.
+// Caja visible de una imagen con object-fit: contain
 function cajaVisible(img) {
   const caja = img.getBoundingClientRect();
   const proporcion = img.naturalWidth / img.naturalHeight || 2;
@@ -109,7 +109,7 @@ function cajaVisible(img) {
   return { left: caja.left + (caja.width - ancho) / 2, top: caja.bottom - alto, width: ancho, height: alto };
 }
 
-// El zapato sale de su repisa y crece hasta su sitio en el escaparate.
+// Del estante al escaparate
 function volarDesdeRepisa(fotoOrigen) {
   const destino = campos.foto;
   const empezar = () => {
@@ -157,7 +157,7 @@ function mostrarPar(indice) {
   campos.aviso.textContent = '';
 }
 
-// Pasar de par: el zapato se va por un lado y el nuevo entra por el otro.
+// Cambiar de par
 function pasar(direccion) {
   if (reducirMovimiento) {
     mostrarPar(actual + direccion);

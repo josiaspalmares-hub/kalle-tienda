@@ -2,7 +2,7 @@ import { ponerPrecio } from './moneda.js';
 import { abrirFicha } from './ficha.js';
 import { crearCorazon } from './favoritos.js';
 
-// Tarjeta de prenda que comparten "Lo más pedido" y el catálogo.
+// Tarjeta de prenda
 // prenda = { nombre, etiqueta, precio, src, foco, zoom, nota }
 export function crearTarjetaPrenda(prenda) {
   const tarjeta = document.createElement('li');
@@ -32,7 +32,7 @@ export function crearTarjetaPrenda(prenda) {
     nota: prenda.nota,
   });
   abrir.addEventListener('click', verFicha);
-  // la misma prenda puede salir en "Lo más pedido" y en el catálogo: comparten corazón
+  // misma prenda en dos secciones: un solo corazón
   tarjeta.querySelector('.prenda__foto').append(crearCorazon({
     clave: `prenda:${prenda.nombre}`,
     nombre: prenda.nombre,

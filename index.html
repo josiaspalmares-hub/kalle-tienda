@@ -164,47 +164,41 @@
       <div class="probador__cabeza" data-revelar>
         <p class="etiqueta">Probador</p>
         <h2 class="titulo">Arma tu <em>outfit</em></h2>
-        <p class="probador__texto">Combina la parte de arriba de un look con la de abajo de otro. Si queda raro, dale a “Sorpréndeme”, que la moda es así.</p>
+        <p class="probador__texto">Elige para quién es y arma el conjunto prenda por prenda: arriba, abajo y zapatos. Te decimos cuánto sale todo junto.</p>
       </div>
-      <div class="probador__cuerpo">
-        <div class="maniqui" aria-label="Vista previa del outfit">
-          <div class="maniqui__parte maniqui__parte--arriba" data-parte-probador="arriba" tabindex="0" aria-label="Parte de arriba. Usa las flechas para cambiarla."><img alt="" /></div>
-          <div class="maniqui__parte maniqui__parte--abajo" data-parte-probador="abajo" tabindex="0" aria-label="Parte de abajo. Usa las flechas para cambiarla."><img alt="" /></div>
-          <div class="maniqui__suelo" aria-hidden="true"></div>
-        </div>
-        <div class="probador__controles">
-          <div class="control">
-            <p class="etiqueta">Arriba</p>
-            <div class="control__fila">
-              <button class="flecha" type="button" data-probador-mover="arriba:-1" aria-label="Prenda de arriba anterior">←</button>
-              <div class="control__datos">
-                <p class="control__nombre" data-probador-nombre="arriba" aria-live="polite"></p>
-                <p class="control__precio" data-probador-precio="arriba"></p>
-              </div>
-              <button class="flecha" type="button" data-probador-mover="arriba:1" aria-label="Prenda de arriba siguiente">→</button>
-            </div>
-            <label class="selector selector--claro"><span>Talla de arriba</span><select data-probador-talla="arriba"><option value="">Elige</option></select></label>
-          </div>
-          <div class="control">
-            <p class="etiqueta">Abajo</p>
-            <div class="control__fila">
-              <button class="flecha" type="button" data-probador-mover="abajo:-1" aria-label="Prenda de abajo anterior">←</button>
-              <div class="control__datos">
-                <p class="control__nombre" data-probador-nombre="abajo" aria-live="polite"></p>
-                <p class="control__precio" data-probador-precio="abajo"></p>
-              </div>
-              <button class="flecha" type="button" data-probador-mover="abajo:1" aria-label="Prenda de abajo siguiente">→</button>
-            </div>
-            <label class="selector selector--claro"><span>Talla de abajo</span><select data-probador-talla="abajo"><option value="">Elige</option></select></label>
-          </div>
-          <div class="probador__total"><span>El outfit completo</span><strong data-probador-total></strong></div>
+
+      <div class="probador__inicio" data-probador-inicio>
+        <fieldset class="genero">
+          <legend>¿Para quién es el outfit?</legend>
+          <label class="genero__opcion">
+            <input type="radio" name="genero" value="hombre" />
+            <span class="genero__caja"><img src="img/modelos/m01.webp" alt="" loading="lazy" /><span class="genero__nombre">Hombre</span></span>
+          </label>
+          <label class="genero__opcion">
+            <input type="radio" name="genero" value="mujer" />
+            <span class="genero__caja"><img src="img/catalogo/c18.webp" alt="" loading="lazy" /><span class="genero__nombre">Mujer</span></span>
+          </label>
+        </fieldset>
+        <p class="aviso" data-genero-aviso role="alert"></p>
+        <button class="boton boton--grande" type="button" data-probador-empezar>Empezar a armar →</button>
+      </div>
+
+      <div class="probador__tablero" data-probador-tablero hidden>
+        <div class="piezas" data-piezas></div>
+        <aside class="probador__resumen">
+          <p class="etiqueta">Tu outfit · <span data-genero-texto></span></p>
+          <ul class="probador__lista" data-probador-lista></ul>
+          <div class="probador__total"><span>Todo junto</span><strong data-probador-total></strong></div>
           <p class="aviso" data-probador-aviso role="alert"></p>
           <div class="probador__acciones">
             <button class="boton" type="button" data-probador-agregar>Agregar el outfit</button>
             <button class="boton boton--borde" type="button" data-probador-azar>Sorpréndeme ↻</button>
           </div>
-          <button class="enlace" type="button" data-probador-guia>¿No sabes tu talla? Calcúlala aquí</button>
-        </div>
+          <div class="probador__enlaces">
+            <button class="enlace" type="button" data-probador-guia>¿No sabes tu talla?</button>
+            <button class="enlace" type="button" data-probador-cambiar></button>
+          </div>
+        </aside>
       </div>
     </section>
 
@@ -221,6 +215,7 @@
         </div>
       </div>
       <ul class="showroom" data-pares></ul>
+      <div class="showroom__mas"><button class="barajar barajar--claro" type="button" data-pares-mas>Ver todos los pares</button></div>
     </section>
 
     <!-- Cómo comprar -->

@@ -48,6 +48,10 @@ export const catalogo = [
   { nombre: 'Pantalón café recto', tipo: 'Pantalón', parte: 'abajo', precio: 36, foto: 'modelos/m02', ...ABAJO },
 ];
 
+// Para quién es cada prenda, según el modelo de la foto
+const MODELOS_MUJER = new Set(['c02', 'c04', 'c07', 'c08', 'c09', 'c10', 'c15', 'c16', 'c17', 'c18', 'c19', 'c20', 'c21', 'm05']);
+export const generoDe = (prenda) => (MODELOS_MUJER.has(prenda.foto.split('/').pop()) ? 'mujer' : 'hombre');
+
 export const resenas = [
   { nombre: 'Andrea M.', zona: 'Los Palos Grandes', nota: 5, texto: 'Pedí el mom jean un martes y el miércoles ya lo tenía puesto. La talla, perfecta.' },
   { nombre: 'Luis R.', zona: 'Catia', nota: 5, texto: 'Las MÉDANO 07 son otra cosa. En el metro me preguntaron dónde las compré tres veces.' },

@@ -40,6 +40,16 @@ export const zapatos = [
   { id: 'z13', nombre: 'NUBE 11', color: 'Carbón', precio: 90, material: 'Cuero sintético', peso: '450 g', desc: 'La NUBE que no se ensucia. Ideal si caminas por Sabana Grande cuando llueve.' },
   { id: 'z12', nombre: 'RORAIMA 23', color: 'Vino', precio: 150, material: 'Nobuk', peso: '470 g', desc: 'Edición vino tinto: combina con negro y con jean oscuro.' },
   { id: 'z14', nombre: 'COLONIA 10', color: 'Oliva', precio: 115, material: 'Gamuza', peso: '390 g', desc: 'Tono militar con suela clara. Para el que va de la oficina al cerro sin cambiarse.' },
+  { id: 'z16', nombre: 'HATILLO 05', color: 'Gris malla', precio: 80, material: 'Tejido de punto', peso: '270 g', desc: 'Para correr temprano en el Parque del Este. Se ajusta como una media.' },
+  { id: 'z17', nombre: 'PETARE 12', color: 'Negro', precio: 75, material: 'Malla y sintético', peso: '420 g', desc: 'Doble velcro y suela con agarre. Te lo pones en dos segundos y sales.' },
+  { id: 'z18', nombre: 'ÁVILA 22', color: 'Lima', precio: 120, material: 'Tejido de punto', peso: '310 g', desc: 'La ÁVILA en verde lima: para que te vean desde el otro lado del bulevar.' },
+  { id: 'z19', nombre: 'MÉDANO 07', color: 'Carbón', precio: 140, material: 'Malla y gamuza', peso: '380 g', desc: 'La suela ondulada en gris oscuro. La más fácil de combinar del estante.' },
+  { id: 'z20', nombre: 'NUBE 11', color: 'Arena', precio: 90, material: 'Cuero sintético', peso: '450 g', desc: 'Tono arena que disimula el polvo de la calle sin perder lo limpio.' },
+  { id: 'z21', nombre: 'RORAIMA 23', color: 'Bosque', precio: 150, material: 'Nobuk', peso: '470 g', desc: 'Verde bosque con detalles claros. Para los que se atreven con el color.' },
+  { id: 'z22', nombre: 'COLONIA 10', color: 'Acero', precio: 115, material: 'Gamuza', peso: '390 g', desc: 'Azul acero con suela menta. Fresca para el día y sobria para la noche.' },
+  { id: 'z23', nombre: 'HATILLO 05', color: 'Azul', precio: 80, material: 'Tejido de punto', peso: '270 g', desc: 'La HATILLO en azul cielo, liviana para el gimnasio o la caminata.' },
+  { id: 'z24', nombre: 'HATILLO 05', color: 'Coral', precio: 80, material: 'Tejido de punto', peso: '270 g', desc: 'Coral suave que combina con todo lo blanco y lo beige del clóset.' },
+  { id: 'z25', nombre: 'NUBE 11', color: 'Rosa palo', precio: 90, material: 'Cuero sintético', peso: '450 g', desc: 'La NUBE de siempre en rosa palo. Cómoda todo el día.' },
 ];
 
 export { dolares } from './moneda.js';

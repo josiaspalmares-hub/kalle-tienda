@@ -6,6 +6,7 @@ import { agregarAlPedido } from './pedido.js';
 import { animarCambio, mezclar } from './flip.js';
 
 const TALLAS_ZAPATOS = ['36', '37', '38', '39', '40', '41', '42', '43', '44', '45'];
+const PARES_INICIALES = 10;
 const reducirMovimiento = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const lista = document.querySelector('[data-pares]');
@@ -62,8 +63,26 @@ const repisas = zapatos.map((zapato, indice) => {
     abrir: () => abrirEscaparate(indice, foto),
   }));
   seguirCursor(repisa);
+  repisa.hidden = indice >= PARES_INICIALES;
   lista.append(repisa);
   return repisa;
+});
+
+// Ver más: primero 10 pares, luego el estante completo
+const verMas = document.querySelector('[data-pares-mas]');
+verMas.textContent = `Ver los ${zapatos.length} pares`;
+verMas.parentElement.hidden = zapatos.length <= PARES_INICIALES;
+verMas.addEventListener('click', () => {
+  const nuevas = repisas.filter((repisa) => repisa.hidden);
+  nuevas.forEach((repisa) => { repisa.hidden = false; });
+  verMas.parentElement.hidden = true;
+  if (!reducirMovimiento) {
+    nuevas.forEach((repisa, i) => repisa.animate(
+      [{ opacity: 0, transform: 'translateY(28px)' }, { opacity: 1, transform: 'none' }],
+      { duration: 600, delay: i * 50, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'backwards' },
+    ));
+  }
+  nuevas[0]?.querySelector('.repisa__abrir').focus({ preventScroll: true });
 });
 
 // Luz que sigue al cursor (--x)

@@ -649,37 +649,51 @@
 .probador { padding: 0 var(--margen) clamp(80px, 10vw, 140px); }
 .probador__cabeza { display: grid; gap: 12px; margin-bottom: 40px; }
 .probador__texto { margin: 0; max-width: 48ch; color: var(--gris); font-size: 17px; }
-.probador__cuerpo { display: grid; grid-template-columns: minmax(260px, 0.9fr) 1.1fr; gap: clamp(24px, 5vw, 72px); align-items: center; }
-.maniqui {
-  --alto-arriba: 300px;
-  --alto-abajo: 340px;
-  position: relative;
-  justify-self: center;
-  display: grid;
-  width: min(100%, 340px);
-  padding-top: 20px;
-  border-radius: 18px;
-  background: radial-gradient(ellipse at 50% 30%, #fff 0%, var(--hueso-2) 70%);
-}
-.maniqui__parte { position: relative; overflow: hidden; outline-offset: -4px; }
-.maniqui__parte--arriba { z-index: 2; height: var(--alto-arriba); -webkit-mask-image: linear-gradient(#000 88%, transparent); mask-image: linear-gradient(#000 88%, transparent); }
-.maniqui__parte--abajo { height: var(--alto-abajo); margin-top: -26px; }
-.maniqui__parte img {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  height: calc(var(--alto) * var(--escala));
-  max-width: none;
-  transform: translate(-50%, calc(var(--alto) * var(--escala) * var(--desde) * -1));
-}
-.maniqui__parte--arriba img { --alto: var(--alto-arriba); }
-.maniqui__parte--abajo img { --alto: var(--alto-abajo); }
-.maniqui__suelo { height: 18px; margin: -6px 18% 10px; border-radius: 50%; background: radial-gradient(closest-side, rgba(20, 20, 20, 0.22), transparent); }
-.probador__controles { display: grid; gap: 22px; }
-.control { display: grid; gap: 10px; padding-bottom: 20px; border-bottom: 1px solid var(--linea); }
-.control__fila { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px; }
-.control__nombre { margin: 0; font-size: 20px; font-weight: 800; font-stretch: 75%; text-transform: uppercase; line-height: 1.1; }
-.control__precio { margin: 2px 0 0; font-weight: 700; }
+.probador__inicio[hidden], .probador__tablero[hidden] { display: none; }
+.probador__inicio { display: grid; justify-items: start; gap: 20px; }
+.genero { display: grid; grid-template-columns: repeat(2, minmax(0, 260px)); gap: 16px; margin: 0; padding: 0; border: 0; }
+.genero legend { margin-bottom: 14px; padding: 0; font-size: 20px; font-weight: 800; font-stretch: 75%; text-transform: uppercase; }
+.genero__opcion { position: relative; cursor: pointer; }
+.genero__opcion input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.genero__caja { display: block; overflow: hidden; border: 2px solid transparent; border-radius: 8px; background: var(--hueso-2); transition: border-color 0.25s, transform 0.3s var(--curva); }
+.genero__caja img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 12%; filter: grayscale(0.4); transition: filter 0.3s, transform 0.6s var(--curva); }
+.genero__nombre { display: block; padding: 12px 16px; font-size: 22px; font-weight: 800; font-stretch: 70%; text-transform: uppercase; }
+.genero__opcion:hover .genero__caja img { transform: scale(1.03); }
+.genero__opcion input:checked + .genero__caja { border-color: var(--tinta); }
+.genero__opcion input:checked + .genero__caja img { filter: none; }
+.genero__opcion input:focus-visible + .genero__caja { outline: 2px solid var(--naranja); outline-offset: 3px; }
+.probador__tablero { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+.piezas { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pieza { display: grid; gap: 12px; padding: 14px; border: 1px solid var(--linea); border-radius: 8px; background: var(--hueso); }
+.pieza--zapatos { grid-column: 1 / -1; grid-template-columns: 1.4fr 1fr; grid-template-areas: 'etiqueta etiqueta' 'foto datos' 'foto talla'; align-items: center; }
+.pieza--zapatos .pieza__etiqueta { grid-area: etiqueta; }
+.pieza--zapatos .pieza__foto { grid-area: foto; aspect-ratio: 2 / 1; background: var(--noche-2); }
+.pieza--zapatos .pieza__datos { grid-area: datos; }
+.pieza--zapatos .selector { grid-area: talla; }
+.pieza__etiqueta { display: flex; justify-content: space-between; margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gris); }
+.pieza__cuenta { letter-spacing: 0; font-weight: 500; }
+.pieza__foto { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 6px; background: var(--hueso-2); outline-offset: 2px; }
+.pieza__foto img { width: 100%; height: 100%; object-fit: contain; object-position: 50% 0; transform: scale(var(--zoom, 1)); transform-origin: var(--foco, 50% 50%); }
+.pieza--zapatos .pieza__foto img { padding: 6% 8%; object-position: 50% 50%; filter: drop-shadow(0 12px 10px rgba(0, 0, 0, 0.5)); }
+.pieza__flecha { position: absolute; top: 50%; z-index: 2; background: rgba(239, 236, 230, 0.92); border-color: transparent; transform: translateY(-50%); box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15); }
+.pieza__flecha--antes { left: 8px; }
+.pieza__flecha--despues { right: 8px; }
+.pieza__flecha:hover { background: var(--tinta); color: var(--hueso); }
+.pieza__datos { min-width: 0; }
+.pieza__nombre { margin: 0; font-size: 16px; font-weight: 800; font-stretch: 80%; line-height: 1.15; text-transform: uppercase; }
+.pieza__precio { margin: 2px 0 0; font-weight: 700; }
+.probador__resumen { position: sticky; top: 120px; display: grid; gap: 16px; padding: 22px; border-radius: 10px; background: var(--tinta); color: var(--hueso); }
+.probador__resumen .etiqueta { color: #b9b4ab; }
+.probador__lista { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.probador__lista li { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 10px; border-bottom: 1px dashed rgba(239, 236, 230, 0.2); font-size: 15px; }
+.probador__lista li span:last-child { font-weight: 700; white-space: nowrap; }
+.probador__resumen .aviso { color: #ff9a6e; }
+.probador__resumen .boton { background: var(--hueso); color: var(--tinta); }
+.probador__resumen .boton:hover { background: #fff; }
+.probador__resumen .boton--borde { background: transparent; color: var(--hueso); border-color: rgba(239, 236, 230, 0.4); }
+.probador__resumen .boton--borde:hover { background: var(--hueso); color: var(--tinta); }
+.probador__enlaces { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.probador__enlaces .enlace { color: var(--hueso); }
 .selector--claro { color: var(--gris); max-width: 220px; }
 .selector--claro select { border-color: var(--linea); background: var(--hueso); color: var(--tinta); }
 .probador__total { display: flex; justify-content: space-between; align-items: baseline; font-size: 18px; }
@@ -708,13 +722,24 @@
 .comentarios__estado:empty { display: none; }
 
 @media (max-width: 900px) {
-  .movimiento, .probador__cuerpo { grid-template-columns: 1fr; }
+  .movimiento, .probador__tablero { grid-template-columns: 1fr; }
+  .probador__resumen { position: static; }
   .movimiento__reel { width: min(100%, 340px); }
 }
 @media (max-width: 640px) {
   .encabezado__favoritos { width: 40px; height: 40px; }
   .encabezado__pedido { padding-left: 14px; }
-  .maniqui { --alto-arriba: 250px; --alto-abajo: 290px; }
-  .control__nombre { font-size: 17px; }
+  .genero { grid-template-columns: 1fr 1fr; width: 100%; }
+  .piezas { gap: 10px; }
+  .pieza { padding: 10px; }
+  .pieza__nombre { font-size: 13px; }
+  .pieza--zapatos { grid-template-columns: 1fr; grid-template-areas: 'etiqueta' 'foto' 'datos' 'talla'; }
+  .pieza__flecha--antes { left: 4px; }
+  .pieza__flecha--despues { right: 4px; }
   .probador__acciones .boton { flex: 1; }
 }
+
+/* Ver más pares */
+.showroom__mas { display: flex; justify-content: center; margin-top: 40px; }
+.showroom__mas[hidden], .repisa[hidden] { display: none; }
+.showroom__mas .barajar { min-height: 50px; padding: 0 28px; font-size: 15px; }

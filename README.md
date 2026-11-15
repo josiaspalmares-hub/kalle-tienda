@@ -1,5 +1,7 @@
 # KALLE · Ropa urbana y zapatos (proyecto de portafolio)
 
+**Verla en línea:** https://kalle-tienda.vercel.app
+
 Tienda de muestra de una marca **ficticia** de Caracas. No vende nada de verdad: productos, precios, opiniones de muestra y dirección son de ejemplo. Hecha con HTML, CSS y JavaScript (módulos), sin librerías de animación.
 
 ## Qué tiene

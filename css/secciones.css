@@ -743,3 +743,6 @@
 .showroom__mas { display: flex; justify-content: center; margin-top: 40px; }
 .showroom__mas[hidden], .repisa[hidden] { display: none; }
 .showroom__mas .barajar { min-height: 50px; padding: 0 28px; font-size: 15px; }
+
+.formulario__nota { grid-column: 1 / -1; margin: 0; font-size: 0.85rem; color: var(--gris); }
+.formulario__nota a { color: inherit; }

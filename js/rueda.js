@@ -14,6 +14,8 @@ const precio = document.querySelector('[data-look-precio]');
 const total = looks.length;
 const paso = (Math.PI * 2) / total;
 const reducirMovimiento = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let avisarPortada;
+const portadaLista = new Promise((listo) => { avisarPortada = listo; });
 
 let posicion = 0; // índice con decimales del look que está al frente
 let objetivo = 0;
@@ -31,10 +33,18 @@ const items = looks.map((look, indice) => {
   const item = document.createElement('div');
   item.className = 'rueda__item';
   const foto = document.createElement('img');
-  foto.src = `img/modelos/${look.id}.webp`;
   foto.alt = `Look ${look.nombre}: ${look.piezas}`;
   foto.decoding = 'async';
-  if (indice > 2 && indice < total - 2) foto.loading = 'lazy';
+  // La del frente primero; las demás cuando ya se ve la portada
+  if (indice === 0) {
+    foto.fetchPriority = 'high';
+    foto.addEventListener('load', avisarPortada, { once: true });
+    foto.addEventListener('error', avisarPortada, { once: true });
+    foto.src = `img/modelos/${look.id}.webp`;
+  } else {
+    foto.fetchPriority = 'low';
+    portadaLista.then(() => { foto.src = `img/modelos/${look.id}.webp`; });
+  }
   // ancho según la foto para igualar la altura
   foto.addEventListener('load', () => {
     item.style.setProperty('--proporcion', foto.naturalWidth / foto.naturalHeight);
